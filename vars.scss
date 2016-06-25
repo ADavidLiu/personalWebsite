@@ -1,0 +1,48 @@
+/* FONT STACKS */
+
+@font-face {
+    font-family: "brandonGrotesque";
+    src: url("fonts/Brandon_bld.otf");
+}
+
+@font-face {
+    font-family: "simplifica";
+    src: url("fonts/simplifica.ttf");
+}
+
+$font-title: "brandonGrotesque",
+sans-serif;
+$font-content: "simplifica",
+sans-serif;
+
+/* COLOR PALETTE */
+
+$color-main: #ff895d;
+$color-accent: #c94747;
+$color-text: #f2f2dd;
+$color-text-dark: #b0c8cc;
+$color-bg-blue: #2d3538;
+
+/* CLIP-PATH SHAPE */
+
+@mixin angle-shape($angle) {
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 $angle);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 $angle);
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+@mixin angle-shape-inverted($angle) {
+    -webkit-clip-path: polygon(0 0, 100% $angle, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% $angle, 100% 100%, 0% 100%);
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+@mixin angle-shape-both($angleTop,
+$angleBottom) {
+    -webkit-clip-path: polygon(0 0, 100% $angleTop, 100% 100%, 0 $angleBottom);
+    clip-path: polygon(0 0, 100% $angleTop, 100% 100%, 0 $angleBottom);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
