@@ -9,7 +9,8 @@
     4. CONTACT
     5. FOOTER
     6. PORTFOLIO MODAL
-    7. MEDIA QUERIES
+    7. TESTIMONIALS
+    8. MEDIA QUERIES
 */
 
 
@@ -143,7 +144,6 @@ header {
 
 .services {
     padding: 0;
-    margin-bottom: -100px;
     position: relative;
     .service-icon {
         position: relative;
@@ -200,6 +200,7 @@ header {
 .contact {
     background-color: $color-main;
     text-align: center;
+    @include angle-shape-inverted(20%);
     margin-bottom: -100px;
     padding-bottom: 115px;
     .contact-info {
@@ -347,6 +348,7 @@ footer {
                 height: 120%;
                 background-color: $color-bg-blue;
                 @include angle-shape-both(20%, 80%);
+                padding-bottom: -31px !important;
                 position: absolute;
                 z-index: 1;
                 left: 50%;
@@ -398,11 +400,109 @@ footer {
                 }
             }
         }
+        .portfolio-preview-image {
+            position: relative;
+        }
+        .indicators {
+            margin: 10px auto 0 auto;
+            position: relative;
+            z-index: 10;
+            display: block;
+            max-width: 450px;
+            width: auto;
+            ol {
+                margin-bottom: 0;
+            }
+            .indicators-bullet {
+                cursor: pointer;
+                width: 15px;
+                height: 15px;
+                @include angle-shape-both(20%, 80%);
+                padding: 0;
+                position: relative;
+                z-index: 2;
+                background-color: $color-accent;
+                transition: all .2s;
+                &:before {
+                    position: absolute;
+                    content: "";
+                    width: 7px;
+                    height: 7px;
+                    background-color: $color-bg-blue;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    @include angle-shape-both(20%, 80%);
+                    padding: 0;
+                    z-index: 3;
+                }
+            }
+        }
+    }
+}
+
+.bullet-active {
+    &:before {
+        transform: translate(-50%, -50%) scale(1) !important;
     }
 }
 
 
-/* 7. MEDIA QUERIES */
+/* 7. TESTIMONIALS */
+
+.testimonials {
+    margin: 50px auto;
+    .testimonials-title {
+        margin-bottom: 80px;
+        h2 {
+            text-transform: uppercase;
+            font-size: 40px;
+            line-height: 40px;
+            font-family: $font-title;
+            color: $color-bg-blue;
+        }
+    }
+    .testimonial {
+        margin-bottom: 50px;
+        position: relative;
+        .testimonial-photo {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            img {
+                margin: 0 auto;
+                @include angle-shape-both(20%, 80%);
+                padding: 0;
+            }
+        }
+        .testimonial-copy {
+            h4 {
+                font-family: $font-title;
+                text-transform: uppercase;
+                color: $color-accent;
+            }
+            p {
+                font-family: $font-content;
+                color: $color-bg-blue;
+                letter-spacing: 2px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+/* 8. MEDIA QUERIES */
+
+@media screen and (max-width: 400px) {
+    .contact {
+        h5 {
+            font-size: 30px;
+        }
+    }
+}
 
 @media screen and (max-width: 768px) {
     .portfolio {
@@ -413,6 +513,19 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+    .testimonials {
+        .testimonials-title {
+            h2 {
+                position: relative;
+                display: inline-block;
+            }
+            .divider {
+                position: absolute;
+                right: 0;
+                left: auto;
+            }
+        }
+    }
     .portfolio {
         .portfolio-title {
             h2 {
@@ -517,6 +630,11 @@ footer {
 }
 
 @media screen and (min-width: 992px) {
+    .testimonials {
+        .testimonials-title {
+            margin-bottom: 90px;
+        }
+    }
     header {
         background-size: auto 140vh;
     }
@@ -549,6 +667,11 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
+    .testimonials {
+        .testimonials-title {
+            margin-bottom: 70px;
+        }
+    }
     header {
         background-size: auto 160vh;
     }

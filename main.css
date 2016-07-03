@@ -7,7 +7,8 @@
     4. CONTACT
     5. FOOTER
     6. PORTFOLIO MODAL
-    7. MEDIA QUERIES
+    7. TESTIMONIALS
+    8. MEDIA QUERIES
 */
 /* 0. GENERAL STYLES */
 /* FONT STACKS */
@@ -115,7 +116,6 @@ header {
 /* 3. SERVICES */
 .services {
   padding: 0;
-  margin-bottom: -100px;
   position: relative; }
   .services .service-icon {
     position: relative;
@@ -161,6 +161,10 @@ header {
 .contact {
   background-color: #ff895d;
   text-align: center;
+  -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+  padding-top: 100px;
+  padding-bottom: 50px;
   margin-bottom: -100px;
   padding-bottom: 115px; }
   .contact .contact-info {
@@ -287,6 +291,7 @@ footer {
         clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
         padding-top: 100px;
         padding-bottom: 100px;
+        padding-bottom: -31px !important;
         position: absolute;
         z-index: 1;
         left: 50%;
@@ -327,12 +332,102 @@ footer {
           .portfolio .portfolio-preview .portfolio-buttons .portfolio-buttons-btn h3:hover {
             background-color: #2d3538;
             color: #ff895d; }
+    .portfolio .portfolio-preview .portfolio-preview-image {
+      position: relative; }
+    .portfolio .portfolio-preview .indicators {
+      margin: 10px auto 0 auto;
+      position: relative;
+      z-index: 10;
+      display: block;
+      max-width: 450px;
+      width: auto; }
+      .portfolio .portfolio-preview .indicators ol {
+        margin-bottom: 0; }
+      .portfolio .portfolio-preview .indicators .indicators-bullet {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+        clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding: 0;
+        position: relative;
+        z-index: 2;
+        background-color: #c94747;
+        transition: all .2s; }
+        .portfolio .portfolio-preview .indicators .indicators-bullet:before {
+          position: absolute;
+          content: "";
+          width: 7px;
+          height: 7px;
+          background-color: #2d3538;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+          clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+          padding-top: 100px;
+          padding-bottom: 100px;
+          padding: 0;
+          z-index: 3; }
 
-/* 7. MEDIA QUERIES */
+.bullet-active:before {
+  transform: translate(-50%, -50%) scale(1) !important; }
+
+/* 7. TESTIMONIALS */
+.testimonials {
+  margin: 50px auto; }
+  .testimonials .testimonials-title {
+    margin-bottom: 80px; }
+    .testimonials .testimonials-title h2 {
+      text-transform: uppercase;
+      font-size: 40px;
+      line-height: 40px;
+      font-family: "brandonGrotesque", sans-serif;
+      color: #2d3538; }
+  .testimonials .testimonial {
+    margin-bottom: 50px;
+    position: relative; }
+    .testimonials .testimonial .testimonial-photo {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%); }
+      .testimonials .testimonial .testimonial-photo img {
+        margin: 0 auto;
+        -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+        clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding: 0; }
+    .testimonials .testimonial .testimonial-copy h4 {
+      font-family: "brandonGrotesque", sans-serif;
+      text-transform: uppercase;
+      color: #c94747; }
+    .testimonials .testimonial .testimonial-copy p {
+      font-family: "simplifica", sans-serif;
+      color: #2d3538;
+      letter-spacing: 2px;
+      font-size: 20px;
+      font-weight: bold; }
+
+/* 8. MEDIA QUERIES */
+@media screen and (max-width: 400px) {
+  .contact h5 {
+    font-size: 30px; } }
 @media screen and (max-width: 768px) {
   .portfolio .portfolio-preview {
     width: 85%; } }
 @media screen and (min-width: 768px) {
+  .testimonials .testimonials-title h2 {
+    position: relative;
+    display: inline-block; }
+  .testimonials .testimonials-title .divider {
+    position: absolute;
+    right: 0;
+    left: auto; }
+
   .portfolio .portfolio-title h2 {
     font-size: 40px; }
   .portfolio .portfolio-preview .portfolio-buttons {
@@ -416,6 +511,9 @@ footer {
     .contact h3 a:active {
       font-size: 40px; } }
 @media screen and (min-width: 992px) {
+  .testimonials .testimonials-title {
+    margin-bottom: 90px; }
+
   header {
     background-size: auto 140vh; }
 
@@ -432,6 +530,9 @@ footer {
   .services .service-icon#icon-3 {
     height: 390px; } }
 @media screen and (min-width: 1200px) {
+  .testimonials .testimonials-title {
+    margin-bottom: 70px; }
+
   header {
     background-size: auto 160vh; }
 
